@@ -6,18 +6,15 @@
 /*   By: valerio <valerio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 23:57:44 by valerio           #+#    #+#             */
-/*   Updated: 2024/02/25 00:31:49 by valerio          ###   ########.fr       */
+/*   Updated: 2024/02/25 20:04:18 by valerio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char *ft_strchr(const char *s, int c)
 {
-    char    *pt;
-
-    pt = (char  *) s;
-    while (*pt != c && *pt != '\0')
-        pt++;
-    if (*pt == '\0' && c != '\0')
+    while (*s != c && *s != '\0')
+        s++;
+    if (*s == '\0' && c != '\0')
         return ('\0');
-    return (pt);
+    return ((char *) s);
 }

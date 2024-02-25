@@ -6,7 +6,7 @@
 /*   By: valerio <valerio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 12:15:39 by valerio           #+#    #+#             */
-/*   Updated: 2024/02/25 15:05:32 by valerio          ###   ########.fr       */
+/*   Updated: 2024/02/25 20:05:53 by valerio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char    *ft_strnstr(const char *big, const char *little, size_t len)
     
     if (*little == '\0')
         return ((char   *) big);
-    little_len = ft_strlen((char    *) little);
+    little_len = ft_strlen(little);
     while (len >= little_len && *big != '\0')
     {
         j = 0;
