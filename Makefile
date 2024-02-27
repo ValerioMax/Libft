@@ -30,10 +30,10 @@ SRC_FILES = ft_bzero.c\
 			ft_calloc.c\
 			ft_strdup.c\
 			ft_substr.c\
-			#ft_strjoin.c\
-			#ft_strtrim.c\
+			ft_strjoin.c\
+			ft_strtrim.c\
+			ft_itoa.c\
 			#ft_split.c\
-			#ft_itoa.c\
 			#ft_strmapi.c\
 			#ft_striteri.c\
 			#ft_putchar_fd.c\
