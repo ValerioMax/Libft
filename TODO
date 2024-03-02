@@ -1,3 +1,2 @@
-calloc da sistemare
-fix memory leak di strtrim
-primo tester da problemi con itoa
+calloc
+split

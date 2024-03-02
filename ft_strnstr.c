@@ -6,7 +6,7 @@
 /*   By: valerio <valerio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 12:15:39 by valerio           #+#    #+#             */
-/*   Updated: 2024/02/25 20:05:53 by valerio          ###   ########.fr       */
+/*   Updated: 2024/03/02 15:30:47 by valerio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ char    *ft_strnstr(const char *big, const char *little, size_t len)
         len--;
         big++;
     }
-    return ('\0');
+    return (NULL);
 }

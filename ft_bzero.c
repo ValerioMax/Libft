@@ -6,7 +6,7 @@
 /*   By: valerio <valerio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 20:09:29 by valerio           #+#    #+#             */
-/*   Updated: 2024/02/24 21:33:28 by valerio          ###   ########.fr       */
+/*   Updated: 2024/03/02 17:24:39 by valerio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void ft_bzero(void *s, size_t n)
 {
+    /*
     char    *str;
     size_t     i;
 
@@ -22,4 +23,6 @@ void ft_bzero(void *s, size_t n)
     while (i < n)
         str[i++] = '\0';
     s = str;
+    */
+    ft_memset(s, '\0', n);
 }
