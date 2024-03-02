@@ -6,35 +6,34 @@
 /*   By: valerio <valerio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 16:10:42 by valerio           #+#    #+#             */
-/*   Updated: 2024/02/25 18:04:36 by valerio          ###   ########.fr       */
+/*   Updated: 2024/03/02 22:59:28 by valerio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_atoi(const char  *s)
+int	ft_atoi(const char	*s)
 {
-    int sign;
-    long int ris;
-    
-    sign = 1;
-    ris = 0;
-    while (*s == '\f' || *s == '\n' || *s == '\r' || *s == '\t' || *s == '\v' || *s == ' ')
-        s++;
-    if (*s == '+' || *s == '-') 
-    {
-        if (*(s + 1) == '+' || *(s + 1) == '-')
-            return (ris);
-        if (*s == '-')
-            sign = -1;
-        s++;
-    }
-    while (*s >= '0' && *s <= '9')
-    {
-        ris = ris * 10 + *s - '0';
-        s++;
-    }
-    
-    return ((int) ris * sign);       
-}
+	int		sign;
+	long	ris;
 
+	sign = 1;
+	ris = 0;
+	while (*s == '\f' || *s == '\n' || *s == '\r' || *s == '\t'
+		|| *s == '\v' || *s == ' ')
+		s++;
+	if (*s == '+' || *s == '-')
+	{
+		if (*(s + 1) == '+' || *(s + 1) == '-')
+			return (ris);
+		if (*s == '-')
+			sign = -1;
+		s++;
+	}
+	while (*s >= '0' && *s <= '9')
+	{
+		ris = ris * 10 + *s - '0';
+		s++;
+	}
+	return ((int)ris * sign);
+}

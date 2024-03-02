@@ -12,15 +12,15 @@
 
 #include "libft.h"
 
-static int  char_instr(char c, const char* set)
+static int	char_instr(char c, const char* set)
 {
-    size_t  i;
+	size_t	i;
 
-    i = 0;
-    while (set[i])
-        if (c == set[i++])
-            return (1);
-    return (0);    
+	i = 0;
+	while (set[i])
+		if (c == set[i++])
+			return (1);
+	return (0);    
 }
 
 char	*ft_strtrim(char const *s1, char const *set)

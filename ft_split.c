@@ -6,7 +6,7 @@
 /*   By: valerio <valerio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:38:17 by valerio           #+#    #+#             */
-/*   Updated: 2024/03/02 18:30:19 by valerio          ###   ########.fr       */
+/*   Updated: 2024/03/02 19:15:02 by valerio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,3 @@ char	**ft_split(char const *s, char c)
 	split[++(i[2])] = NULL;
 	return (split);
 }
-
-
-

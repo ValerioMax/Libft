@@ -31,26 +31,25 @@ void    *ft_memmove(void *dest, const void *src, size_t n)
 }
 */
 //modo2
-
-void    *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-    size_t  i;
-    
-    if ((!dest && !src) || n == 0)
-        return (dest);
-    if (src < dest)
-    {
-        while (n--)
-            ((char  *) dest)[n] = ((char  *) src)[n];
-    }
-    else
-    {
-        i = 0;
-        while (i < n)
-        {
-            ((char  *) dest)[i] = ((char  *) src)[i];
-            i++;
-        }   
-    }
-    return (dest);
+	size_t  i;
+
+	if ((!dest && !src) || n == 0)
+		return (dest);
+	if (src < dest)
+	{
+		while (n--)
+			((char *) dest)[n] = ((char *) src)[n];
+	}
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			((char *) dest)[i] = ((char *) src)[i];
+			i++;
+		}
+	}
+	return (dest);
 }
