@@ -6,13 +6,14 @@
 /*   By: valerio <valerio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 11:38:17 by valerio           #+#    #+#             */
-/*   Updated: 2024/03/02 19:15:02 by valerio          ###   ########.fr       */
+/*   Updated: 2024/03/04 20:12:54 by valerio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 /*
-static int  count_str(char const *s, char c)
+static int  ft_count_str(char const *s, char c)
 {
     int num;
     size_t i;
@@ -32,7 +33,7 @@ static int  count_str(char const *s, char c)
     return (num);
 }
 
-static void    aux1(char** strs, const char *s, char c)
+static void    ft_aux1(char*** strs, const char *s, char c)
 {
     int     num;
     size_t i;
@@ -49,15 +50,14 @@ static void    aux1(char** strs, const char *s, char c)
         len = 0;
         while (s[i] != c && s[i++])
             len++;
-        strs[num] = (char   *) malloc((len + 1) * sizeof(char));
-        if (!strs[num])
-            free(strs[num]);
+        (*strs)[num] = (char   *) malloc((len + 1) * sizeof(char));
+        if (!(*strs)[num])
+            free((*strs)[num]);
         num++;
     }
-   // strs[num] = (char   *) malloc(sizeof(char*));
 }
 
-static void    aux2(char** strs, const char *s, char c)
+static void    ft_aux2(char*** strs, const char *s, char c)
 {
     int     num;
     size_t i;
@@ -73,23 +73,27 @@ static void    aux2(char** strs, const char *s, char c)
             break;
         len = 0;
         while (s[i] != c && s[i])
-            strs[num][len++] = s[i++];
-        strs[num++][len] = '\0';
+            (*strs)[num][len++] = s[i++];
+        (*strs)[num++][len] = '\0';
     }
-    strs[num] = NULL;
+    (*strs)[num] = NULL;
 }
 
 char **ft_split(char const *s, char c)
 {
     char    **strs;
     
-    strs = (char    **) malloc((count_str(s, c) + 1) * sizeof(char    *));
+    strs = (char    **) malloc((ft_count_str(s, c) + 1) * sizeof(char    *));
     if (!strs)
         return (NULL);
-    aux1(strs, s, c);
-    aux2(strs, s, c);
+    ft_aux1(&strs, s, c);
+    ft_aux2(&strs, s, c);
     return (strs);
 }
+
+
+
+
 
 #include <stdio.h>
 
@@ -109,8 +113,8 @@ int main()
     printf("FINE\n");
     return 0;
 }
-*/
 
+//v2
 static int	ft_count_words(char const *str, char c)
 {
 	int	i;
@@ -166,4 +170,82 @@ char	**ft_split(char const *s, char c)
 	}
 	split[++(i[2])] = NULL;
 	return (split);
+}
+
+*/
+
+
+//v3
+
+static int	ft_len(char const *str, char sep, int i)
+{
+	int	len;
+
+	len = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == sep)
+			return (len);
+		i++;
+		len++;
+	}
+	return (len);
+}
+
+static int	ft_count_str(char const *s, char c)
+{
+	int	num;
+	int	i;
+
+	i = 0;
+	num = 0;
+	while (s[i])
+	{
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i] == '\0')
+			break ;
+		while (s[i] != c && s[i])
+			i++;
+		num++;
+	}
+	return (num);
+}
+
+static void	ft_assign(char *s, char const *str, int len, int *i)
+{
+	int	k;
+
+	k = 0;
+	while (k < len)
+		s[k++] = str[(*i)++];
+	s[k] = '\0';
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		i;
+	int		j;
+	char	**strs;
+	int		len;
+
+	strs = (char **) malloc(sizeof(char *) * (ft_count_str(s, c) + 1));
+	if (!strs)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i] != '\0')
+	{
+		while (s[i] == c)
+			i++;
+		if (s[i] == '\0')
+			break ;
+		len = ft_len(s, c, i);
+		strs[j] = (char *) malloc(sizeof(char) * (len + 1));
+		if (!strs[j])
+			return (NULL);
+		ft_assign(strs[j++], s, ft_len(s, c, i), &i);
+	}
+	strs[j] = NULL;
+	return (strs);
 }

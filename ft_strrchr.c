@@ -25,15 +25,4 @@ char	*ft_strrchr(const char *s, int c)
 		if (str[i] == (unsigned char) c)
 			return (str + i);
 	return (NULL);
-    /*
-    char    *pt;
-    
-    pt = ((char  *) s) + ft_strlen(s);
-    while (*pt != c && pt != s)
-        pt--;
-    if (pt == s && c != *s)
-        return (NULL);
-    return (pt);
-
-    */
 }

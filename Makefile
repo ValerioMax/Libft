@@ -69,7 +69,7 @@ bonus: $(OBJ_FILES_BONUS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ_FILES)
+	rm -f $(OBJ_FILES) $(OBJ_FILES_BONUS)
 
 fclean: clean
 	rm -f $(NAME)

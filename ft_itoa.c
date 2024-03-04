@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-static char	*reverse(char *s)
+static char	*ft_reverse(char *s)
 {
-	size_t  i;
-	size_t  len;
-	char    temp;
+	size_t	i;
+	size_t	len;
+	char	temp;
 
 	len = ft_strlen((const char *) s);
 	i = 0;
@@ -40,7 +40,7 @@ static long	ft_numlen(long n, int len)
 		return (ft_numlen(n / 10, len + 1));
 }
 
-static char*	aux(long int n, char *s, int i)
+static char	*ft_aux(long int n, char *s, int i)
 {
 	if (n < 10)
 	{
@@ -50,7 +50,7 @@ static char*	aux(long int n, char *s, int i)
 	else
 	{
 		s[i] = n % 10 + '0';
-		return (aux(n / 10, s, i + 1));
+		return (ft_aux(n / 10, s, i + 1));
 	}
 }
 
@@ -62,7 +62,7 @@ char	*ft_itoa(int n)
 
 	long_n = (long int) n;
 	numlen = ft_numlen(long_n, 1);
-	s = (char   *) malloc((numlen + 1) * sizeof(char));
+	s = (char *) malloc((numlen + 1) * sizeof(char));
 	if (!s)
 		return (NULL);
 	if (long_n < 0)
@@ -70,9 +70,9 @@ char	*ft_itoa(int n)
 		long_n *= -1;
 		s[numlen - 1] = '-';
 		s[numlen] = '\0';
-		s = reverse(aux(long_n, s, 0));
+		s = ft_reverse(ft_aux(long_n, s, 0));
 		return (s);
 	}
 	s[numlen] = '\0';
-	return(reverse(aux(long_n, s, 0)));
+	return (ft_reverse(ft_aux(long_n, s, 0)));
 }
