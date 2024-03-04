@@ -174,21 +174,14 @@ char	**ft_split(char const *s, char c)
 
 */
 
-
 //v3
-
-static int	ft_len(char const *str, char sep, int i)
+static int	ft_next_len(char const *str, char sep, int i)
 {
 	int	len;
 
 	len = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == sep)
-			return (len);
-		i++;
+	while (str[i] && str[i++] != sep)
 		len++;
-	}
 	return (len);
 }
 
@@ -234,17 +227,17 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		while (s[i] == c)
 			i++;
 		if (s[i] == '\0')
 			break ;
-		len = ft_len(s, c, i);
-		strs[j] = (char *) malloc(sizeof(char) * (len + 1));
+		len = ft_next_len(s, c, i);
+		strs[j] = (char *) malloc(sizeof(char) * len + 1);
 		if (!strs[j])
 			return (NULL);
-		ft_assign(strs[j++], s, ft_len(s, c, i), &i);
+		ft_assign(strs[j++], s, len, &i);
 	}
 	strs[j] = NULL;
 	return (strs);
