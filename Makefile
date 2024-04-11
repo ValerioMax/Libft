@@ -1,11 +1,8 @@
-# Nome del progetto
 NAME = libft.a
 
-# Compilatore e opzioni
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-# Lista dei file sorgente
 SRC_FILES = ft_bzero.c\
 			ft_isalnum.c\
 			ft_isascii.c\
@@ -52,11 +49,9 @@ SRC_FILES_BONUS = ft_lstnew.c\
 				ft_lstmap.c\
 
 
-# Costruzione della lista di oggetti
 OBJ_FILES = $(SRC_FILES:.c=.o)
 OBJ_FILES_BONUS = $(SRC_FILES_BONUS:.c=.o)
 
-# Regole
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)

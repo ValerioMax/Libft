@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: valerio <valerio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vdessena <vdessena@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 19:28:29 by valerio           #+#    #+#             */
-/*   Updated: 2024/03/02 22:17:25 by valerio          ###   ########.fr       */
+/*   Created: 2024/02/28 19:28:29 by vdessena          #+#    #+#             */
+/*   Updated: 2024/03/11 16:42:49 by vdessena         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,3 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new);
 }
-
-/*
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
-{
-    if (!lst || !f || !del)
-        return (NULL);
-    if (!lst->next)
-    {
-        f(lst->content);
-        return (ft_lstnew(lst->content));
-    }
-    else
-    {
-        f(lst->content);
-        return (ft_lstnew(lst->content))
-    }
-}
-*/
